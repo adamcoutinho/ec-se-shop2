@@ -1,0 +1,15 @@
+[versions]
+kotlin = "1.9.0"
+spring-framework = "6.1.5"
+micrometer = "1.12.3"
+jackson = "2.17.0"
+
+[libraries]
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+spring-context = { module = "org.springframework:spring-context", version.ref = "spring-framework" }
+spring-web = { module = "org.springframework:spring-web", version.ref = "spring-framework" }
+spring-webmvc = { module = "org.springframework:spring-webmvc", version.ref = "spring-framework" }
+micrometer-core = { module = "io.micrometer:micrometer-core", version.ref = "micrometer" }
+micrometer-commons = { module = "io.micrometer:micrometer-commons", version.ref = "micrometer" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jakarta-validation-api = { module = "jakarta.validation:jakarta.validation-api", version = "3.0.2" }

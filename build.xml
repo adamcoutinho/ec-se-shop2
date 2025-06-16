@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="CopyJarsToWebInfLib" default="copy" basedir=".">
+<!--    CORE DOMAIN-->
+    <property name="core.dir" value="core/build/libs"/>
+<!--    DEFINE_PATH_LIB_JARS-->
+    <property name="website.serverlibs.dir" value="website-serverlibs"/>
+    <property name="website.server.dir" value="website-server/build/libs"/>
+<!--    RACK API-->
+    <property name="rack.api.v1.customers.dir" value="rack-api/rack-v1-customers/build/libs"/>
+    <property name="rack.api.v1.error.dir" value="rack-api/rack-v1-error-handler/build/libs"/>
+
+<!--    RACK SERVER DB-->
+    <property name="rack.db.server.postgres.dir" value="rack-db/rack-server-postgres/build/libs"/>
+<!--RACK MODULES-->
+    <property name="rack.modules.dir" value="website-racks/build/libs"/>
+<!--    <property name="website.serverlibs.dir" value="website-serverlibs"/>-->
+
+    <!-- DEFINE_PATH_WEBSITES_JSP-->
+    <property name="website.dir" value="website/src/main/webapp/WEB-INF/lib" />
+
+    <!--    eraser libs jars -->
+    <target name="clean">
+        <echo message="erasing files jar"/>
+        <!-- Delete JAR files inside WEB-INF/lib -->
+<!--        <delete dir="${website.serverlibs.dir}" includes="**/*.jar"/>-->
+        <delete dir="${website.dir}" includes="**/*.jar"/>
+        <echo message="erasing files jar"/>
+    </target>
+
+    <target name="copy">
+
+        <echo message="Copying JAR website-serverlibs files to website/src/main/webapp/WEB-INF/libs"/>
+        <!-- Ensure the WEB-INF/lib directory exists -->
+<!--        <mkdir dir="${website.dir}"/>-->
+
+        <!-- Copy JAR files -->
+        <copy todir="${website.dir}">
+
+            <fileset dir="${core.dir}" includes="**/*.jar"/>
+            <fileset dir="${rack.api.v1.error.dir}" includes="**/*.jar"/>
+
+            <fileset dir="${website.serverlibs.dir}" includes="**/*.jar"/>
+            <fileset dir="${website.server.dir}" includes="**/*.jar"/>
+            <fileset dir="${rack.api.v1.customers.dir}" includes="**/*.jar"/>
+            <fileset dir="${rack.db.server.postgres.dir}" includes="**/*.jar"/>
+            <fileset dir="${rack.modules.dir}" includes="**/*.jar"/>
+
+        </copy>
+
+        <echo message="JAR files copied successfully!" />
+    </target>
+
+
+
+
+</project>

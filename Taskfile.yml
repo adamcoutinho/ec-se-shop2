@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+  delete-container:
+    cmds:
+      - ./delete-containers.sh
+    silent: true
+  build:
+    cmds:
+      - gradle clean build

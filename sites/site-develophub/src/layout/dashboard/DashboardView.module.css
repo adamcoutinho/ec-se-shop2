@@ -1,0 +1,4 @@
+.dashboardView {
+    display: flex;
+    flex-direction: row;
+}

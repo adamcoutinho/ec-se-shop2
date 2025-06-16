@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/task
+           http://www.springframework.org/schema/task/spring-task.xsd">
+
+
+    <!-- Define your view resolver and other MVC configurations here -->
+    <!-- beans components-->
+    <!--    <bean id="userAgent" class="com.main.ep.v1.authentic.UserAgent"/>-->
+    <context:component-scan base-package="com.main.ep.rack.v1.customers"/>
+    <context:component-scan base-package="com.main.ep.rack.v1.error.handler"/>
+    <context:component-scan base-package="com.main.ep.website.server"/>
+
+<!--    <mvc:interceptors>-->
+<!--        <mvc:interceptor>-->
+<!--            <mvc:mapping path="/**"/>-->
+<!--            <bean class="com.main.ep.website.server.interceptor.MyCustomInterceptor"/>-->
+<!--        </mvc:interceptor>-->
+<!--    </mvc:interceptors>-->
+    <mvc:resources mapping="/static/**" location="/static/" />
+    <mvc:resources mapping="/develophub/**" location="/static/site-develophub/" />
+    <mvc:resources mapping="/*.js" location="/static/site-develophub/" />
+    <mvc:resources mapping="/*.css" location="/static/site-develophub/" />
+<!--    -->
+<!--    <mvc:resources mapping="/*.js" location="/static/site-develophub/" />-->
+
+</beans>
